@@ -15,20 +15,21 @@ export default {
     Header,
     Tasks
   },
-  // data() {
-  //   tasks: {}
-  // },
+  data() {
+    return {
+      tasks: {}
+    }
+  },
   methods: {
     deleteTask(id) {
       if (confirm('Are you sure?')){
-        console.log(this.tasks)
         this.tasks = this.tasks.filter((task) => task.id !== id)
         console.log(this.tasks)
       }
     },
     toggleReminder(id) {
-      console.log(this.tasks)
       this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+      console.log(this.tasks)
     },
   },
   created() {
